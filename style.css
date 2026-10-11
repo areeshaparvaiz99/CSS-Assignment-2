@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f3d6d9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.main-card{
+    background: white;
+    width: 800px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.image-side{
+    width: 50%;
+    background: #f7b5b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 40px;
+}
+.image-side img{
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    z-index: 2;
+    /* Yahan se rotate hata diya hai taake seedhi rahe */
+    transform: rotate(0deg);
+}
+.circle-bg{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #e89a9a;
+    border-radius: 50%;
+    z-index: 1;
+}
+.text-side{
+    width: 50%;
+    padding: 40px;
+}
+.text-side h4{
+    color: #a14a4a;
+    margin: 0;
+}
+.light{
+    color: gray;
+    font-size: 14px;
+}
+.price{
+    font-size: 22px;
+    font-weight: bold;
+}
+.price span{
+    font-size: 16px;
+    color: gray;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+.label{
+    font-size: 12px;
+    color: gray;
+    margin-top: 20px;
+}
+.sizes button{
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    background: #fff0f3;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.sizes .active{
+    background: #f7b5b5;
+}
+.colors{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+.dot{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.pink{ background: #f2d5d5; }
+.black{ background: black; }
+.blue{ background: #5ab0d1; }
+
+.buttons{
+    margin-top: 30px;
+}
+.buy{
+    background: #f7c9c9;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.cart{
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}

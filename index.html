@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Perfume Shop</title>
+    <!-- Areesha Parvaiz - Assignment 6 -->
+    <style>
+        body {
+            margin: 0;
+            background: #f2c9cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        .box {
+            background: white;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 20px;
+            padding: 15px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .top {
+            background: #f7b0b5;
+            border-radius: 15px;
+            text-align: center;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .top img {
+            width: 100%;
+            height: auto;
+            max-height: 320px;
+            object-fit: contain;
+            background: #f7b0b5;
+        }
+
+        h4 {
+            color: #b35e62;
+            margin: 15px 0 0 0;
+        }
+
+        h2 {
+            margin: 5px 0 0 0;
+            font-size: 24px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .price s {
+            font-size: 14px;
+            color: gray;
+            margin-left: 8px;
+        }
+
+        .label {
+            font-size: 12px;
+            color: gray;
+            margin-top: 18px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .color-box {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .c {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .c:hover {
+            border-color: black;
+        }
+
+        .active-color {
+            box-shadow: 0 0 8px black;
+            border-color: black;
+            transform: scale(1.1);
+        }
+
+        #c1 {
+            background: #f8d7e0;
+        }
+
+        #c2 {
+            background: black;
+        }
+
+        #c3 {
+            background: #b9e5f5;
+        }
+
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            width: fit-content;
+            padding: 6px 12px;
+            border-radius: 25px;
+        }
+
+        .qty button {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: #eee;
+            font-size: 16px;
+        }
+
+        #num {
+            font-weight: bold;
+            min-width: 15px;
+            text-align: center;
+        }
+
+        .btns {
+            margin-top: 22px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .b1 {
+            flex: 1;
+            background: #f7b0b5;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .b2 {
+            flex: 1;
+            background: white;
+            border: 1px solid black;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .b1:active,
+        .b2:active {
+            box-shadow: 0 0 10px gray;
+            transform: scale(0.97);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .box {
+                max-width: 100%;
+            }
+
+            .top img {
+                height: 220px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="top">
+            <img src="perfume.png">
+        </div>
+
+        <h4>Pink Aura</h4>
+        <h2>Pink Bloom Perfume by Areesha</h2>
+        <div class="price">$150 <s>$200</s></div>
+
+        <p class="label">COLOR</p>
+        <div class="color-box">
+            <div class="c active-color" id="c1" onclick="changeColor(this)"></div>
+            <div class="c" id="c2" onclick="changeColor(this)"></div>
+            <div class="c" id="c3" onclick="changeColor(this)"></div>
+        </div>
+
+        <p class="label">QUANTITY</p>
+        <div class="qty">
+            <button onclick="less()">-</button>
+            <span id="num">1</span>
+            <button onclick="more()">+</button>
+        </div>
+
+        <div class="btns">
+            <button class="b1" onclick="buy()">Buy Now</button>
+            <button class="b2" onclick="cart()">Add To Cart</button>
+        </div>
+    </div>
+
+    <script>
+        function changeColor(el) {
+            var all = document.getElementsByClassName("c");
+            for (var i = 0; i < all.length; i++) {
+                all[i].classList.remove("active-color");
+            }
+            el.classList.add("active-color");
+        }
+        var quantitty = 1;
+        function more() {
+            quantitty++;
+            document.getElementById("num").innerText = quantitty;
+        }
+        function less() {
+            if (quantitty > 1) {
+                quantitty--;
+                document.getElementById("num").innerText = quantitty;
+            }
+        }
+        function buy() {alert("Thanks! You buy " + quantitty + " perfume");}
+        function cart() {alert(quantitty + " perfume added to cart");}
+    </script>
+
+</body>
+
+</html>
